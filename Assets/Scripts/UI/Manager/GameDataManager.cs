@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
@@ -10,6 +11,12 @@ public class GameDataManager : MonoBehaviour
 
     [SerializeField]
     private List<UpgradeStats> _upgradeStats;
+
+    [SerializeField]
+    private List<ClientDefinition> _clients;
+
+    [SerializeField]
+    private List<PackageDefinition> _packages;
 
     public PlayerDataDefinition PlayerDataDefinition { set => _playerData = value; get => _playerData; }
 
