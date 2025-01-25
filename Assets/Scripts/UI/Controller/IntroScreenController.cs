@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroScreenController : MonoBehaviour
@@ -85,6 +86,7 @@ public class IntroScreenController : MonoBehaviour
     private void OnStartClick()
     {
         Debug.Log("OK");
+        SceneManager.LoadScene(1);
     }
 
     void OnCreditClose()

@@ -1505,11 +1505,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf12092cb365b2468ec648a8d4502a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerData:
+    ID: 
+    coin: 0
+    upgrades: []
   _upgradeStats:
   - {fileID: 11400000, guid: 4f6fb1984d0aeb64da0a655a57ea1e56, type: 2}
   - {fileID: 11400000, guid: cf0474905a2913445954a6ad7e362cd7, type: 2}
   - {fileID: 11400000, guid: b0a36c09f02219942aa22ae5fbb6949c, type: 2}
   - {fileID: 11400000, guid: f68470c927a5b3d4d922981a63ca1252, type: 2}
+  _clients:
+  - {fileID: 11400000, guid: 7bbc0ee6aff284f4d8bec6f0d1bb3310, type: 2}
+  - {fileID: 11400000, guid: 455d47febbea8054e9fd2e38ecbaa493, type: 2}
+  - {fileID: 11400000, guid: bc562f8581ab4d743b9dc079803e6b7d, type: 2}
+  - {fileID: 11400000, guid: 7d18651222234c0459f2be58e3389ee0, type: 2}
+  - {fileID: 11400000, guid: 6ed0241672a96724d9ca6e260167a978, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 883ebe935cfab0b4594b23313d756083, type: 2}
+  - {fileID: 11400000, guid: 3e423d773c419b342bb4a6879b8f19b1, type: 2}
+  - {fileID: 11400000, guid: a8b5c67d607d87b48ad0239857128152, type: 2}
+  - {fileID: 11400000, guid: c219a827ed6c61e489a24b45751928a9, type: 2}
+  - {fileID: 11400000, guid: 7920cad979059f64fb3fc72f06cdbb52, type: 2}
+  - {fileID: 11400000, guid: f31d7819631c59847b5aa85d8c57be5d, type: 2}
+  - {fileID: 11400000, guid: 940a5d9a56ccdad49989973e872bbcf4, type: 2}
+  - {fileID: 11400000, guid: 394b625e4a10ce04087bad53ef98ba94, type: 2}
 --- !u!1 &1145465289
 GameObject:
   m_ObjectHideFlags: 0
