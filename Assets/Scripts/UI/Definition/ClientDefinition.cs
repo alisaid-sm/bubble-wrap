@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Client", menuName = "Data/Client")]
 public class ClientDefinition : ScriptableObject
 {
-    public string name;
+    public string clientName;
 }

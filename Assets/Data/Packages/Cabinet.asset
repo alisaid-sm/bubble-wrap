@@ -20,3 +20,4 @@ MonoBehaviour:
   height: 35
   price: 30
   totalDimension: 140
+  prefab: {fileID: 7280201314498005278, guid: 15e2c20bfd885164cb2728276fd689f6, type: 3}
