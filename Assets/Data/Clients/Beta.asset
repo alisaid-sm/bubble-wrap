@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7618ee855b1f55c45bde7851c6ab8d7f, type: 3}
   m_Name: Beta
   m_EditorClassIdentifier: 
-  name: Beta
+  clientName: Beta

@@ -16,9 +16,11 @@ public class GameUIManager : MonoBehaviour
     private GameDataManager gameDataManager;
 
     public List<ITask> _itemTasks;
+    private GameManager gameManager;
 
     void Awake()
     {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         gameDataManager = GameObject.FindWithTag("GameDataManager").GetComponent<GameDataManager>();
     }
 
@@ -50,5 +52,6 @@ public class GameUIManager : MonoBehaviour
         _measurementScreen.SetActive(false);
         _inputMeasurementScreen.SetActive(false);
         _inputMeasurementScreen.SetActive(false);
+        gameManager.formMode = false;
     }
 }
