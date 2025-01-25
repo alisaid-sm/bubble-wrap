@@ -50,6 +50,7 @@ public class IntroScreenController : MonoBehaviour
             _bgm.mute = true;
             SetVolBtnImg(false);
         }
+        PlayerPrefs.Save();
     }
 
     void LoadVolBtnImage()
