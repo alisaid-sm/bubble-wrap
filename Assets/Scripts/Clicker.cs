@@ -46,11 +46,7 @@ public class Clicker : MonoBehaviour
         {
             if (_pointSelected)
             {
-                cameraViewer.enabled = false;
-                gameManager.viewerMode = false;
-                _pointSelected.transform.rotation = new Quaternion(0, 0, 0, 0);
-                _pointSelected = null;
-                OnLeaveObject();
+                OnEscapingObject();
             }
         }
 
@@ -79,6 +75,15 @@ public class Clicker : MonoBehaviour
         {
             gameUIManager.OnEnterComputer();
         }
+    }
+
+    public void OnEscapingObject()
+    {
+        cameraViewer.enabled = false;
+        gameManager.viewerMode = false;
+        _pointSelected.transform.rotation = new Quaternion(0, 0, 0, 0);
+        _pointSelected = null;
+        OnLeaveObject();
     }
 
     void OnLeaveObject()
