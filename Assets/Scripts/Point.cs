@@ -5,4 +5,5 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     public Transform cameraPosition;
+    public bool canRotate = false;
 }
