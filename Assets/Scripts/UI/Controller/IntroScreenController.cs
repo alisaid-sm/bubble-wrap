@@ -19,6 +19,12 @@ public class IntroScreenController : MonoBehaviour
         _creditBackBtn.onClick.AddListener(OnCreditClose);
     }
 
+    void Start()
+    {
+        _uiController.Route("Intro");
+        _uiController.Popup("");
+    }
+
     private void OnVolClick()
     {
         Debug.Log("OK");
@@ -26,7 +32,7 @@ public class IntroScreenController : MonoBehaviour
 
     private void OnQuitClick()
     {
-        Application.Quit();
+        _uiController.Popup("Quit");
     }
 
     private void OnCreditClick()
@@ -42,5 +48,15 @@ public class IntroScreenController : MonoBehaviour
     void OnCreditClose()
     {
         _uiController.Route("Intro");
+    }
+
+    public void OnCancelQuit()
+    {
+        _uiController.Popup("");
+    }
+
+    public void OnQuitConfirm()
+    {
+        Application.Quit();
     }
 }
