@@ -6,16 +6,16 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
-    private UIManager uIManager;
+    private GameUIManager gameUIManager;
     public Animator animator;
+
+    private string currentSentence;
+
+    public bool isTyping = false;
 
     void Awake()
     {
-        uIManager = GetComponent<UIManager>();
-        Debug.Log(uIManager);
-    }
-    void Start()
-    {
+        gameUIManager = GetComponent<GameUIManager>();
         sentences = new Queue<string>();
     }
 
@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Starting convertation with " + dialogue.author);
         sentences.Clear();
 
-        uIManager.author.text = dialogue.author;
+        gameUIManager.author.text = dialogue.author;
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
@@ -41,25 +41,36 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+
+        if (isTyping)
+        {
+            gameUIManager.sentence.text = currentSentence;
+            isTyping = false;
+            StopAllCoroutines();
+            return;
+        }
+
         string sentence = sentences.Dequeue();
-        // uIManager.sentence.text = sentence;
+        currentSentence = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        uIManager.sentence.text = "";
+        isTyping = true;
+        gameUIManager.sentence.text = "";
 
         foreach (char letter in sentence.ToCharArray())
         {
-            uIManager.sentence.text += letter;
+            gameUIManager.sentence.text += letter;
             yield return new WaitForSeconds(0.05f);
-
         }
+        isTyping = false;
     }
-    private void EndDialogue()
+    public void EndDialogue()
     {
+        gameUIManager.OnEndDialog();
         animator.SetBool("IsOpen", false);
     }
 }

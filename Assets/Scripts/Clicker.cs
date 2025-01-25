@@ -44,6 +44,7 @@ public class Clicker : MonoBehaviour
                     cameraViewer.transform.rotation = camPos.transform.rotation;
                     //gameManager.Player.transform.position = new Vector3(0, gameManager.Player.transform.position.y, -1);
                     gameManager.Player.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    gameManager.Player.SetActive(false);
                     gameManager.viewerMode = true;
                     OnChangeObjectSelected();
                 }
@@ -68,7 +69,7 @@ public class Clicker : MonoBehaviour
             }
         }
 
-        if (!gameManager.formMode)
+        if (!gameManager.formMode && !gameManager.onDialog)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -114,6 +115,14 @@ public class Clicker : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (rulerHorizontal.activeSelf || rulerVertical.activeSelf)
+            {
+                rulerHorizontal.SetActive(false);
+                rulerVertical.SetActive(false);
+            }
+        }
     }
 
     void OnChangeObjectSelected()
@@ -132,6 +141,7 @@ public class Clicker : MonoBehaviour
     {
         cameraViewer.enabled = false;
         gameManager.viewerMode = false;
+        gameManager.Player.SetActive(true);
         _pointSelected.transform.rotation = new Quaternion(0, 0, 0, 0);
         _pointSelected = null;
         OnLeaveObject();
