@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,14 @@ public class Clicker : MonoBehaviour
     public Camera cameraViewer;
     Camera m_Camera;
     GameManager gameManager;
+    GameUIManager gameUIManager;
     private Point _pointSelected;
 
     void Awake()
     {
         m_Camera = Camera.main;
         gameManager = GetComponent<GameManager>();
+        gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
     }
     void Update()
     {
@@ -32,8 +35,9 @@ public class Clicker : MonoBehaviour
                     cameraViewer.transform.position = camPos.transform.position;
                     cameraViewer.transform.rotation = camPos.transform.rotation;
                     gameManager.Player.transform.position = new Vector3(0, gameManager.Player.transform.position.y, -1);
-                    gameManager.Player.transform.rotation = new Quaternion(0,0,0,0);
+                    gameManager.Player.transform.rotation = new Quaternion(0, 0, 0, 0);
                     gameManager.viewerMode = true;
+                    OnChangeObjectSelected();
                 }
             }
         }
@@ -44,8 +48,9 @@ public class Clicker : MonoBehaviour
             {
                 cameraViewer.enabled = false;
                 gameManager.viewerMode = false;
-                _pointSelected.transform.rotation = new Quaternion(0,0,0,0);
+                _pointSelected.transform.rotation = new Quaternion(0, 0, 0, 0);
                 _pointSelected = null;
+                OnLeaveObject();
             }
         }
 
@@ -67,4 +72,19 @@ public class Clicker : MonoBehaviour
             }
         }
     }
+
+    void OnChangeObjectSelected()
+    {
+        if (_pointSelected.pointName == PointName.Computer)
+        {
+            gameUIManager.OnEnterComputer();
+        }
+    }
+
+    void OnLeaveObject()
+    {
+        gameUIManager.OnLeaveObject();
+    }
+
+
 }

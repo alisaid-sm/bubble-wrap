@@ -10,6 +10,7 @@ TagManager:
   - BGM
   - GameDataManager
   - SaveManager
+  - GameUIManager
   layers:
   - Default
   - TransparentFX
