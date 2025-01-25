@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameUIManager : MonoBehaviour
@@ -13,7 +14,13 @@ public class GameUIManager : MonoBehaviour
     [SerializeField]
     private GameObject _inputMeasurementScreen;
 
+    [SerializeField]
+    public TMP_Text author;
+    [SerializeField]
+    public TMP_Text sentence;
+
     private GameDataManager gameDataManager;
+    private DialogueTrigger dialogueTrigger;
 
     public List<ITask> _itemTasks;
     private GameManager gameManager;
@@ -22,14 +29,15 @@ public class GameUIManager : MonoBehaviour
     {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         gameDataManager = GameObject.FindWithTag("GameDataManager").GetComponent<GameDataManager>();
+        dialogueTrigger = GetComponent<DialogueTrigger>();
     }
 
     void Start()
     {
         _itemTasks = gameDataManager.GenerateTask(10);
+        gameManager.onDialog = true;
+        dialogueTrigger.TriggerDialogue();
     }
-
-
 
     public void OnEnterComputer()
     {
@@ -53,6 +61,11 @@ public class GameUIManager : MonoBehaviour
         _measurementScreen.SetActive(false);
         _inputMeasurementScreen.SetActive(false);
         gameManager.formMode = false;
+    }
 
+    public void OnEndDialog()
+    {
+        gameManager.Player.SetActive(true);
+        gameManager.onDialog = false;
     }
 }

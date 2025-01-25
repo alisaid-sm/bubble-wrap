@@ -47,7 +47,7 @@ public class Clicker : MonoBehaviour
             }
         }
 
-        if (!gameManager.formMode)
+        if (!gameManager.formMode && !gameManager.onDialog)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

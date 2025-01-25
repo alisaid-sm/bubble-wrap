@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerForm playerForm;
     public bool viewerMode = false;
-
     public bool formMode = false;
+    public bool onDialog = false;
 
     public void SetPlayerForm(int p, int l, int t)
     {
