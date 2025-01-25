@@ -21,8 +21,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     public GameObject mainBgm;
 
+    private GameDataManager _gameDataManager;
+
     void Awake()
     {
+        _gameDataManager = GameObject.FindWithTag("GameDataManager").GetComponent<GameDataManager>();
         mainBgm = GameObject.FindWithTag("BGM");
     }
 
@@ -30,7 +33,6 @@ public class UIController : MonoBehaviour
     {
         LoadSettings();
     }
-
     private void LoadSettings()
     {
         AudioSource bgmAudio = mainBgm.GetComponent<AudioSource>();
@@ -43,7 +45,6 @@ public class UIController : MonoBehaviour
             bgmAudio.mute = false;
         }
     }
-
     public void Route(string dest)
     {
         for (int i = 0; i < screens.Count; i++)
@@ -66,4 +67,6 @@ public class UIController : MonoBehaviour
             }
         }
     }
+
+
 }

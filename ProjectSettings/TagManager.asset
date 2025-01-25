@@ -11,6 +11,7 @@ TagManager:
   - GameDataManager
   - SaveManager
   - Package
+  - GameUIManager
   layers:
   - Default
   - TransparentFX

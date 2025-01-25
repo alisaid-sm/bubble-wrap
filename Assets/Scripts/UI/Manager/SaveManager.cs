@@ -17,20 +17,8 @@ public class SaveManager : MonoBehaviour
         LoadGame();
     }
 
-    // void Start()
-    // {
-    //     _playerData = m_GameDataManager.PlayerDataDefinition;
-    //     Debug.Log(_playerData.ID);
-    //     if (_playerData.ID == "")
-    //     {
-    //         NewGame();
-    //     }
-    // }
-
     public PlayerDataDefinition NewGame()
     {
-        Debug.Log("New Game");
-        Debug.Log(m_GameDataManager);
         m_GameDataManager.PlayerDataDefinition = m_GameDataManager.NewPlayerData();
         return m_GameDataManager.PlayerDataDefinition;
     }
