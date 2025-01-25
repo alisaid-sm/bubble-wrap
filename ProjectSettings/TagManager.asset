@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Point
+  - UIController
+  - BGM
+  - GameDataManager
+  - SaveManager
   layers:
   - Default
   - TransparentFX
