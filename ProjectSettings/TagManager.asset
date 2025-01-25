@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Point
+  - UIController
   layers:
   - Default
   - TransparentFX
