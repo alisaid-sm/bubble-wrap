@@ -42,7 +42,7 @@ public class Clicker : MonoBehaviour
                     cameraViewer.enabled = true;
                     cameraViewer.transform.position = camPos.transform.position;
                     cameraViewer.transform.rotation = camPos.transform.rotation;
-                    //gameManager.Player.transform.position = new Vector3(0, gameManager.Player.transform.position.y, -1);
+                    gameManager.Player.transform.position = new Vector3(gameManager.Player.transform.position.x, gameManager.Player.transform.position.y, gameManager.Player.transform.position.z - 1);
                     gameManager.Player.transform.rotation = new Quaternion(0, 0, 0, 0);
                     gameManager.Player.SetActive(false);
                     gameManager.viewerMode = true;
@@ -100,18 +100,21 @@ public class Clicker : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Debug.Log("Activate ruler");
-                if (!rulerHorizontal.activeSelf && !rulerVertical.activeSelf)
+                if (_pointSelected && _pointSelected.pointName == PointName.Measurement)
                 {
-                    rulerHorizontal.SetActive(true);
-                }
-                else if (!rulerVertical.activeSelf)
-                {
-                    rulerHorizontal.SetActive(false);
-                    rulerVertical.SetActive(true);
-                }
-                else
-                {
-                    rulerVertical.SetActive(false);
+                    if (!rulerHorizontal.activeSelf && !rulerVertical.activeSelf)
+                    {
+                        rulerHorizontal.SetActive(true);
+                    }
+                    else if (!rulerVertical.activeSelf)
+                    {
+                        rulerHorizontal.SetActive(false);
+                        rulerVertical.SetActive(true);
+                    }
+                    else
+                    {
+                        rulerVertical.SetActive(false);
+                    }
                 }
             }
         }
@@ -142,7 +145,10 @@ public class Clicker : MonoBehaviour
         cameraViewer.enabled = false;
         gameManager.viewerMode = false;
         gameManager.Player.SetActive(true);
-        _pointSelected.transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (_pointSelected.canRotate)
+        {
+            _pointSelected.packagePosition.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
         _pointSelected = null;
         OnLeaveObject();
     }
