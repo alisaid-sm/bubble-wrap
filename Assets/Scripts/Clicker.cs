@@ -23,6 +23,9 @@ public class Clicker : MonoBehaviour
     void Update()
     {
         Mouse mouse = Mouse.current;
+
+
+
         if (mouse.leftButton.wasPressedThisFrame)
         {
             Vector3 mousePosition = mouse.position.ReadValue();
@@ -44,47 +47,50 @@ public class Clicker : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!gameManager.formMode)
         {
-            if (_pointSelected)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                OnEscapingObject();
+                if (_pointSelected)
+                {
+                    OnEscapingObject();
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Rotate left");
-            if (_pointSelected && _pointSelected.canRotate)
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y + 10f, _pointSelected.packagePosition.transform.rotation.z));
+                Debug.Log("Rotate left");
+                if (_pointSelected && _pointSelected.canRotate)
+                {
+                    _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y + 10f, _pointSelected.packagePosition.transform.rotation.z));
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log("Rotate right");
-            if (_pointSelected && _pointSelected.canRotate)
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y - 10f, _pointSelected.packagePosition.transform.rotation.z));
+                Debug.Log("Rotate right");
+                if (_pointSelected && _pointSelected.canRotate)
+                {
+                    _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y - 10f, _pointSelected.packagePosition.transform.rotation.z));
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("Activate ruler");
-            if (!rulerHorizontal.activeSelf && !rulerVertical.activeSelf)
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                rulerHorizontal.SetActive(true);
-            }
-            else if (!rulerVertical.activeSelf)
-            {
-                rulerHorizontal.SetActive(false);
-                rulerVertical.SetActive(true);
-            }
-            else
-            {
-                rulerVertical.SetActive(false);
+                Debug.Log("Activate ruler");
+                if (!rulerHorizontal.activeSelf && !rulerVertical.activeSelf)
+                {
+                    rulerHorizontal.SetActive(true);
+                }
+                else if (!rulerVertical.activeSelf)
+                {
+                    rulerHorizontal.SetActive(false);
+                    rulerVertical.SetActive(true);
+                }
+                else
+                {
+                    rulerVertical.SetActive(false);
+                }
             }
         }
     }
@@ -94,6 +100,10 @@ public class Clicker : MonoBehaviour
         if (_pointSelected.pointName == PointName.Computer)
         {
             gameUIManager.OnEnterComputer();
+        }
+        if (_pointSelected.pointName == PointName.Measurement)
+        {
+            gameUIManager.OnEnterMeasurement();
         }
     }
 

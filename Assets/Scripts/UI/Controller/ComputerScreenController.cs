@@ -8,6 +8,8 @@ public class ComputerScreenController : MonoBehaviour
     private GameUIManager gameUIManager;
     [SerializeField]
     private GameObject itemLine;
+    [SerializeField]
+    private GameObject spawnPoint;
     void Start()
     {
         gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
@@ -26,12 +28,16 @@ public class ComputerScreenController : MonoBehaviour
         {
             int taskIndex = i;
             LineController line = Instantiate(itemLine, this.transform).GetComponent<LineController>();
-            line.SetContent(tasks[i].client.name, tasks[i].package.name, tasks[i].status, () => SetOnProgress(taskIndex));
+            line.SetContent(tasks[i].client.clientName, tasks[i].package.packageName, tasks[i].status, () => SetOnProgress(taskIndex));
         }
     }
 
     void SetOnProgress(int index)
     {
+        foreach (Transform child in spawnPoint.transform)
+        {
+            Destroy(child.gameObject);
+        }
         List<ITask> tasks = gameUIManager._itemTasks;
         for (int i = 0; i < tasks.Count; i++)
         {
@@ -41,6 +47,7 @@ public class ComputerScreenController : MonoBehaviour
             }
         }
         tasks[index].status = ITaskStatus.ON_PROGRESS;
+        Instantiate(tasks[index].package.prefab, spawnPoint.transform);
         RenderTasks();
     }
 }
