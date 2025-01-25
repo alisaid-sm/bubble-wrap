@@ -3,7 +3,22 @@ guid: 23e6cf7bb83baaa41bbdcabb9797dfc5
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cream
+    second: {fileID: 2100000, guid: 865c1e047e01ec24ea6852470d79a16f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood3
+    second: {fileID: 2100000, guid: c4d240c1030ff0448805731eb53befee, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood3
+    second: {fileID: 2800000, guid: 9f912f101c1a5d34bba9b6492ea1c34c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

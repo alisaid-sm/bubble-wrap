@@ -56,7 +56,7 @@ public class Clicker : MonoBehaviour
             Debug.Log("Rotate left");
             if (_pointSelected && _pointSelected.canRotate)
             {
-                _pointSelected.transform.Rotate(new Vector3(_pointSelected.transform.rotation.x, _pointSelected.transform.rotation.y + 10f, _pointSelected.transform.rotation.z));
+                _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y + 10f, _pointSelected.packagePosition.transform.rotation.z));
             }
         }
 
@@ -65,7 +65,7 @@ public class Clicker : MonoBehaviour
             Debug.Log("Rotate right");
             if (_pointSelected && _pointSelected.canRotate)
             {
-                _pointSelected.transform.Rotate(new Vector3(_pointSelected.transform.rotation.x, _pointSelected.transform.rotation.y - 10f, _pointSelected.transform.rotation.z));
+                _pointSelected.packagePosition.transform.Rotate(new Vector3(_pointSelected.packagePosition.transform.rotation.x, _pointSelected.packagePosition.transform.rotation.y - 10f, _pointSelected.packagePosition.transform.rotation.z));
             }
         }
 

@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 3f8e4f77c4e4c37478bd440e56433865
+guid: c6be5a9583848e949a91b523fa16785c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Kalender
-    second: {fileID: 2800000, guid: c8834ee6f0db888419bec5a5d9036b28, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Keyboard
-    second: {fileID: 2800000, guid: 8f34badf10591d24fa3080306b98db9e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Kopi
-    second: {fileID: 2800000, guid: 43f02d1dfd10e62459b367cdb9e8d576, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Mous
-    second: {fileID: 2800000, guid: 77e389a2cb0b25f48a186ed1fab8b1cc, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Wood1
-    second: {fileID: 2800000, guid: 88f933566203675478f64a2dbed4623c, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
