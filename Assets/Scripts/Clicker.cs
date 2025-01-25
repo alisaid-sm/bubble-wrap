@@ -93,6 +93,14 @@ public class Clicker : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (rulerHorizontal.activeSelf || rulerVertical.activeSelf)
+            {
+                rulerHorizontal.SetActive(false);
+                rulerVertical.SetActive(false);
+            }
+        }
     }
 
     void OnChangeObjectSelected()

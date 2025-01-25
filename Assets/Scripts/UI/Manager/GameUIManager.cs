@@ -43,6 +43,7 @@ public class GameUIManager : MonoBehaviour
     public void OnInputMeasurement()
     {
         OnLeaveObject();
+        gameManager.formMode = true;
         _inputMeasurementScreen.SetActive(true);
     }
 
@@ -51,7 +52,7 @@ public class GameUIManager : MonoBehaviour
         _computerScreen.SetActive(false);
         _measurementScreen.SetActive(false);
         _inputMeasurementScreen.SetActive(false);
-        _inputMeasurementScreen.SetActive(false);
         gameManager.formMode = false;
+
     }
 }
