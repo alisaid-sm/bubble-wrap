@@ -5,9 +5,14 @@ public class IntroScreenController : MonoBehaviour
 {
     [SerializeField]
     private Button _startBtn, _creditBtn, _quitBtn, _volBtn, _creditBackBtn;
-
     private UIController _uiController;
+    private AudioSource _bgm;
 
+    [SerializeField]
+    private Sprite soundOn;
+
+    [SerializeField]
+    private Sprite soundOff;
 
     void Awake()
     {
@@ -23,11 +28,47 @@ public class IntroScreenController : MonoBehaviour
     {
         _uiController.Route("Intro");
         _uiController.Popup("");
+
+        _bgm = _uiController.mainBgm.GetComponent<AudioSource>();
+        _bgm.Play();
+        LoadVolBtnImage();
     }
 
     private void OnVolClick()
     {
-        Debug.Log("OK");
+        bool isMuted = PlayerPrefs.GetString("muted") == "true";
+
+        if (isMuted)
+        {
+            PlayerPrefs.SetString("muted", "false");
+            _bgm.mute = false;
+            SetVolBtnImg(true);
+        }
+        else
+        {
+            PlayerPrefs.SetString("muted", "true");
+            _bgm.mute = true;
+            SetVolBtnImg(false);
+        }
+    }
+
+    void LoadVolBtnImage()
+    {
+        bool isMuted = PlayerPrefs.GetString("muted") == "true";
+        SetVolBtnImg(!isMuted);
+    }
+
+    void SetVolBtnImg(bool isMuted)
+    {
+        Image btnImage = _volBtn.GetComponent<Image>();
+        if (isMuted)
+        {
+            btnImage.sprite = soundOn;
+        }
+        else
+        {
+            btnImage.sprite = soundOff;
+        }
     }
 
     private void OnQuitClick()

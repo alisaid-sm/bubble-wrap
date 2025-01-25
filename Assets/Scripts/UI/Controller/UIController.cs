@@ -18,6 +18,32 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<Screen> popups;
 
+    [SerializeField]
+    public GameObject mainBgm;
+
+    void Awake()
+    {
+        mainBgm = GameObject.FindWithTag("BGM");
+    }
+
+    void Start()
+    {
+        LoadSettings();
+    }
+
+    private void LoadSettings()
+    {
+        AudioSource bgmAudio = mainBgm.GetComponent<AudioSource>();
+        if (PlayerPrefs.GetString("muted") == "true")
+        {
+            bgmAudio.mute = true;
+        }
+        else
+        {
+            bgmAudio.mute = false;
+        }
+    }
+
     public void Route(string dest)
     {
         for (int i = 0; i < screens.Count; i++)
