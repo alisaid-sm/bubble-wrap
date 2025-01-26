@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Cabinet
   m_EditorClassIdentifier: 
   ID: a8f7e5f4-1880-46ee-bbd5-b1c1b16156b4
-  name: Cabinet
+  packageName: Cabinet
   weight: 40
   length: 10
   width: 10
   height: 35
   price: 30
   totalDimension: 140
-  prefab: {fileID: 7280201314498005278, guid: 15e2c20bfd885164cb2728276fd689f6, type: 3}
+  prefab: {fileID: 7280201314498005278, guid: 93cf0f7ffbd31c247842c9c5fbc52c07, type: 3}

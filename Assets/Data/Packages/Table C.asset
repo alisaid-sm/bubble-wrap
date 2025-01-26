@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Table C
   m_EditorClassIdentifier: 
   ID: e9554892-f2ea-423f-99d1-bfb710a761dd
-  name: Table C
+  packageName: Table C
   weight: 25
   length: 25
   width: 15
   height: 20
   price: 50
   totalDimension: 300
-  prefab: {fileID: 7280201314498005278, guid: 15e2c20bfd885164cb2728276fd689f6, type: 3}
+  prefab: {fileID: 7280201314498005278, guid: 0214354305c5c894ab9970816a69c592, type: 3}
