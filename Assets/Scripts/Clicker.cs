@@ -137,6 +137,10 @@ public class Clicker : MonoBehaviour
         {
             gameUIManager.OnEnterMeasurement();
         }
+        if (_pointSelected.pointName == PointName.BubbleBuilder)
+        {
+            gameUIManager.OnBubbleBuilderEnter();
+        }
     }
 
     public void OnEscapingObject()

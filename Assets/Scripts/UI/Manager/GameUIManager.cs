@@ -13,6 +13,8 @@ public class GameUIManager : MonoBehaviour
     private GameObject _measurementScreen;
     [SerializeField]
     private GameObject _inputMeasurementScreen;
+    [SerializeField]
+    private GameObject _bubbleBuilderScreen;
 
     [SerializeField]
     public TMP_Text author;
@@ -55,6 +57,13 @@ public class GameUIManager : MonoBehaviour
         _inputMeasurementScreen.SetActive(true);
     }
 
+    public void OnBubbleBuilderEnter()
+    {
+        OnLeaveObject();
+        gameManager.formMode = true;
+        _bubbleBuilderScreen.SetActive(true);
+    }
+
     public void OnLeaveObject()
     {
         _computerScreen.SetActive(false);
@@ -67,5 +76,11 @@ public class GameUIManager : MonoBehaviour
     {
         gameManager.Player.SetActive(true);
         gameManager.onDialog = false;
+    }
+
+    public ITask FindTask()
+    {
+        ITask task = _itemTasks.Find((task) => task.status == ITaskStatus.ON_PROGRESS);
+        return task;
     }
 }
