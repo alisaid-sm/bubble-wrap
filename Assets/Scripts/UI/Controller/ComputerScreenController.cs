@@ -19,7 +19,12 @@ public class ComputerScreenController : MonoBehaviour
         RenderTasks();
     }
 
-    void RenderTasks()
+    void OnEnable()
+    {
+        RenderTasks();
+    }
+
+    public void RenderTasks()
     {
         foreach (Transform child in transform)
         {
@@ -27,7 +32,6 @@ public class ComputerScreenController : MonoBehaviour
         }
 
         List<ITask> tasks = gameUIManager._itemTasks;
-        Debug.Log(tasks[0].package);
         for (int i = 0; i < tasks.Count; i++)
         {
             int taskIndex = i;

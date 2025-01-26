@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData:
     ID: 
-    coin: 0
+    gold: 0
     upgrades: []
   _upgradeStats:
   - {fileID: 11400000, guid: 4f6fb1984d0aeb64da0a655a57ea1e56, type: 2}
@@ -160,3 +160,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f31d7819631c59847b5aa85d8c57be5d, type: 2}
   - {fileID: 11400000, guid: 940a5d9a56ccdad49989973e872bbcf4, type: 2}
   - {fileID: 11400000, guid: 394b625e4a10ce04087bad53ef98ba94, type: 2}
+  _bubbles:
+  - {fileID: 11400000, guid: b751e4ae5a764c54ea1aa371e90233d2, type: 2}
+  - {fileID: 11400000, guid: b67c85250008cd24bba936e67efb6808, type: 2}
+  - {fileID: 11400000, guid: e79c9d704b6bb074cac8ed35c3734c4d, type: 2}

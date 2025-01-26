@@ -5,7 +5,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 
 [Serializable]
-public enum ITaskStatus { STAND_BY, ON_PROGRESS, DONE }
+public enum ITaskStatus { STAND_BY, ON_PROGRESS, SUCCESS, FAILED }
 
 [Serializable]
 public class ITask
@@ -37,13 +37,16 @@ public class GameDataManager : MonoBehaviour
     [SerializeField]
     private List<PackageDefinition> _packages;
 
+    [SerializeField]
+    private List<BubbleDefinition> _bubbles;
+
 
     public PlayerDataDefinition PlayerDataDefinition { set => _playerData = value; get => _playerData; }
 
     public PlayerDataDefinition NewPlayerData()
     {
         _playerData.ID = Guid.NewGuid().ToString();
-        _playerData.coin = 500;
+        _playerData.gold = 500;
         _playerData.upgrades = new List<PlayerUpgrade>();
         for (int i = 0; i < _upgradeStats.Count; i++)
         {
@@ -60,6 +63,10 @@ public class GameDataManager : MonoBehaviour
     public List<PackageDefinition> GetPackages()
     {
         return _packages;
+    }
+    public List<BubbleDefinition> GetBubbles()
+    {
+        return _bubbles;
     }
 
     public ClientDefinition RandomClient()
@@ -83,5 +90,15 @@ public class GameDataManager : MonoBehaviour
             _randomTasks.Add(new ITask(RandomClient(), RandomPackage()));
         }
         return _randomTasks;
+    }
+
+    public PlayerDataDefinition GetPlayerData()
+    {
+        return _playerData;
+    }
+
+    public void SetPlayerData(PlayerDataDefinition p)
+    {
+        _playerData = p;
     }
 }

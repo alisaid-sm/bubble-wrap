@@ -20,7 +20,7 @@ public class PlayerUpgrade
 public class PlayerDataDefinition
 {
     public string ID;
-    public int coin;
+    public int gold;
 
     public List<PlayerUpgrade> upgrades;
 
