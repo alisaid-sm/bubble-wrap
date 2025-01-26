@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Chair C
   m_EditorClassIdentifier: 
   ID: 5b36b83d-f02b-4ea0-a1d0-6a0bad0e61e5
-  name: Chair C
+  packageName: Chair C
   weight: 15
   length: 10
   width: 10
   height: 20
   price: 10
   totalDimension: 180
-  prefab: {fileID: 7280201314498005278, guid: 15e2c20bfd885164cb2728276fd689f6, type: 3}
+  prefab: {fileID: 7280201314498005278, guid: 03de56c656c67464790ddd81c53fe2bc, type: 3}

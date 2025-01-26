@@ -44,7 +44,6 @@ public class Clicker : MonoBehaviour
                     cameraViewer.transform.rotation = camPos.transform.rotation;
                     gameManager.Player.transform.position = new Vector3(gameManager.Player.transform.position.x, gameManager.Player.transform.position.y, gameManager.Player.transform.position.z - 1);
                     gameManager.Player.transform.rotation = new Quaternion(0, 0, 0, 0);
-                    gameManager.Player.SetActive(false);
                     gameManager.viewerMode = true;
                     OnChangeObjectSelected();
                 }
@@ -144,7 +143,6 @@ public class Clicker : MonoBehaviour
     {
         cameraViewer.enabled = false;
         gameManager.viewerMode = false;
-        gameManager.Player.SetActive(true);
         if (_pointSelected.canRotate)
         {
             _pointSelected.packagePosition.transform.rotation = new Quaternion(0, 0, 0, 0);

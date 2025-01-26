@@ -18,11 +18,18 @@ public class InputMeasurementScreenController : MonoBehaviour
     [SerializeField]
     private Button _submitBtn;
 
+    [SerializeField]
+    private GameObject spawnPoint;
+
+    private GameObject package;
+
     private GameManager gameManager;
+
 
     void Start()
     {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        package = GameObject.FindWithTag("Package");
         gameManager.formMode = true;
         _submitBtn.onClick.AddListener(Submit);
     }
@@ -34,5 +41,8 @@ public class InputMeasurementScreenController : MonoBehaviour
         int t = int.Parse(inputTinggi.text);
 
         gameManager.SetPlayerForm(p, l, t);
+        package.transform.SetParent(spawnPoint.transform);
+        package.transform.position = spawnPoint.transform.position;
+        package.transform.rotation = spawnPoint.transform.rotation;
     }
 }
