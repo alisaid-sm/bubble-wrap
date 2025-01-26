@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class GameUIManager : MonoBehaviour
     public TMP_Text author;
     [SerializeField]
     public TMP_Text sentence;
+    public TMP_Text goldText;
 
     private GameDataManager gameDataManager;
     private DialogueTrigger dialogueTrigger;
@@ -51,6 +53,11 @@ public class GameUIManager : MonoBehaviour
         _itemTasks = gameDataManager.GenerateTask(10);
         gameManager.onDialog = true;
         dialogueTrigger.TriggerDialogue();
+    }
+
+    void Update()
+    {
+        goldText.text = gameDataManager.GetPlayerData().gold.ToString();
     }
 
     public void OnEnterComputer()
@@ -165,7 +172,15 @@ public class GameUIManager : MonoBehaviour
 
     }
 
+    public void Home()
+    {
+        SceneManager.LoadScene(0);
+    }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 
 }
