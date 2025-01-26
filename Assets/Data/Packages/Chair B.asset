@@ -15,9 +15,9 @@ MonoBehaviour:
   ID: 79dddba5-cc83-42ad-a779-b0a1e7aa4b6f
   packageName: Chair B
   weight: 15
-  length: 10
-  width: 10
-  height: 30
-  price: 20
+  length: 7
+  width: 7
+  height: 13
+  price: 30
   totalDimension: 120
   prefab: {fileID: 7280201314498005278, guid: a963f26ff07c6d647aaa32c376818df7, type: 3}

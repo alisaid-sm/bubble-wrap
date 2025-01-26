@@ -15,9 +15,9 @@ MonoBehaviour:
   ID: 3c87182d-3602-439e-8ae4-9b60bd8b7fd5
   packageName: Table B
   weight: 25
-  length: 25
-  width: 15
-  height: 10
-  price: 30
+  length: 19
+  width: 13
+  height: 8
+  price: 110
   totalDimension: 150
   prefab: {fileID: 7280201314498005278, guid: 87b73e59f25dcb04ba43469d476e6315, type: 3}
