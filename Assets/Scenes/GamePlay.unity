@@ -6669,13 +6669,11 @@ MonoBehaviour:
     author: Caca
     sentences:
     - Hey Mari
-    - I got an Ide on how we can make it back to our homeland
-    - First, we need some money to get our feet ready
-    - I've managed to acquire us a Warehouse for us to use
-    - With our magic, we can create an awesome business of transporting goods
-    - With our magic, we can create an awesome business of transporting goods
-    - Though, we need to outsource some stuff such as the courier and the Bubble
-      Creation
+    - Aku punya ide tentang bagaimana kita bisa kembali ke dunia kita
+    - Pertama, kita perlu sejumlah uang untuk bersiap-siap
+    - Aku telah berhasil mendapatkan gedung untuk kita gunakan
+    - Namun, kita perlu melakukan outsourcing beberapa hal seperti kurir dan pembuatan
+      Bubble
     - Let's get Started
 --- !u!114 &1803346877
 MonoBehaviour:
