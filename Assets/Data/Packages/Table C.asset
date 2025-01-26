@@ -15,9 +15,9 @@ MonoBehaviour:
   ID: e9554892-f2ea-423f-99d1-bfb710a761dd
   packageName: Table C
   weight: 25
-  length: 25
-  width: 15
-  height: 20
-  price: 50
+  length: 15
+  width: 9
+  height: 6
+  price: 40
   totalDimension: 300
   prefab: {fileID: 7280201314498005278, guid: 0214354305c5c894ab9970816a69c592, type: 3}

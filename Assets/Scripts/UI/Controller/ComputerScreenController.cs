@@ -36,7 +36,6 @@ public class ComputerScreenController : MonoBehaviour
         {
             int taskIndex = i;
             LineController line = Instantiate(itemLine, this.transform).GetComponent<LineController>();
-            Debug.Log(tasks[0].package.packageName);
             line.SetContent(tasks[i].client.clientName, tasks[i].package.packageName, tasks[i].status, () => SetOnProgress(taskIndex));
         }
     }
