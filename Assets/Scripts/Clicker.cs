@@ -44,7 +44,6 @@ public class Clicker : MonoBehaviour
                     cameraViewer.transform.rotation = camPos.transform.rotation;
                     gameManager.Player.transform.position = new Vector3(gameManager.Player.transform.position.x, gameManager.Player.transform.position.y, gameManager.Player.transform.position.z - 1);
                     gameManager.Player.transform.rotation = new Quaternion(0, 0, 0, 0);
-                    gameManager.Player.SetActive(false);
                     gameManager.viewerMode = true;
                     OnChangeObjectSelected();
                 }
@@ -53,7 +52,7 @@ public class Clicker : MonoBehaviour
             Ray rayViewer = cameraViewer.ScreenPointToRay(mousePosition);
             if (Physics.Raycast(rayViewer, out RaycastHit hitViewer))
             {
-                if (hitViewer.transform.CompareTag("Pump"))
+                if (hitViewer.transform.CompareTag("Pump") && !gameManager.formMode && !gameManager.onDialog)
                 {
                     Debug.Log("Pump Bubble");
                     Package pkg = GameObject.FindGameObjectWithTag("Package").GetComponent<Package>();
@@ -64,6 +63,10 @@ public class Clicker : MonoBehaviour
                         float bubbleScalePer10 = pkg.bubbleMaxScale / 10;
                         float bubbleScale = pkg.bubble.localScale.x > 0 ? pkg.bubble.localScale.x + bubbleScalePer10 : bubbleScalePer10;
                         pkg.bubble.localScale = new Vector3(bubbleScale, bubbleScale, bubbleScale);
+                    }
+                    else
+                    {
+                        gameUIManager._kirimScreen.SetActive(true);
                     }
                 }
             }
@@ -138,19 +141,29 @@ public class Clicker : MonoBehaviour
         {
             gameUIManager.OnEnterMeasurement();
         }
+        if (_pointSelected.pointName == PointName.BubbleBuilder)
+        {
+            gameUIManager.OnBubbleBuilderEnter();
+        }
     }
 
     public void OnEscapingObject()
     {
         cameraViewer.enabled = false;
         gameManager.viewerMode = false;
-        gameManager.Player.SetActive(true);
         if (_pointSelected.canRotate)
         {
             _pointSelected.packagePosition.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
         _pointSelected = null;
         OnLeaveObject();
+    }
+
+    public void OnCloseBubbleBuilderForm()
+    {
+        gameManager.SetBubbleForm(0, 0, 0);
+        gameUIManager._bubbleBuilderScreen.GetComponent<BubbleBuilderScreenController>().RenderBubbleForm();
+        OnEscapingObject();
     }
 
     void OnLeaveObject()

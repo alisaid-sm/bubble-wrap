@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Table A
   m_EditorClassIdentifier: 
   ID: ccbc0ee6-d631-4d75-8875-119e2ecc8b70
-  name: Table A
+  packageName: Table A
   weight: 15
-  length: 15
+  length: 10
   width: 10
-  height: 10
-  price: 10
+  height: 6
+  price: 30
   totalDimension: 60
-  prefab: {fileID: 7280201314498005278, guid: 15e2c20bfd885164cb2728276fd689f6, type: 3}
+  prefab: {fileID: 7280201314498005278, guid: 0bb1418284dce774ba19dd24412f40d4, type: 3}

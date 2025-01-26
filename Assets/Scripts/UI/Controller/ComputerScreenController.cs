@@ -10,14 +10,18 @@ public class ComputerScreenController : MonoBehaviour
     private GameObject itemLine;
     [SerializeField]
     private GameObject spawnPoint;
+
+    private GameObject[] packages;
     void Start()
     {
         gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
+
         RenderTasks();
     }
 
-    void RenderTasks()
+    public void RenderTasks()
     {
+        gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -34,6 +38,11 @@ public class ComputerScreenController : MonoBehaviour
 
     void SetOnProgress(int index)
     {
+        packages = GameObject.FindGameObjectsWithTag("Package");
+        foreach (GameObject obj in packages)
+        {
+            Destroy(obj);
+        }
         foreach (Transform child in spawnPoint.transform)
         {
             Destroy(child.gameObject);
