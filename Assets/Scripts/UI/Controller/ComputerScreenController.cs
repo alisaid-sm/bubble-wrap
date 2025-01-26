@@ -19,13 +19,9 @@ public class ComputerScreenController : MonoBehaviour
         RenderTasks();
     }
 
-    void OnEnable()
-    {
-        RenderTasks();
-    }
-
     public void RenderTasks()
     {
+        gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
