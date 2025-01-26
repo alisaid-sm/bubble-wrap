@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PointName { Computer, Measurement, None }
+public enum PointName { Computer, Measurement, BubbleBuilder, None }
 public class Point : MonoBehaviour
 {
     public Transform cameraPosition;
