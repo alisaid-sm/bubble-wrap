@@ -52,7 +52,7 @@ public class Clicker : MonoBehaviour
             Ray rayViewer = cameraViewer.ScreenPointToRay(mousePosition);
             if (Physics.Raycast(rayViewer, out RaycastHit hitViewer))
             {
-                if (hitViewer.transform.CompareTag("Pump"))
+                if (hitViewer.transform.CompareTag("Pump") && !gameManager.formMode && !gameManager.onDialog)
                 {
                     Debug.Log("Pump Bubble");
                     Package pkg = GameObject.FindGameObjectWithTag("Package").GetComponent<Package>();
@@ -63,6 +63,10 @@ public class Clicker : MonoBehaviour
                         float bubbleScalePer10 = pkg.bubbleMaxScale / 10;
                         float bubbleScale = pkg.bubble.localScale.x > 0 ? pkg.bubble.localScale.x + bubbleScalePer10 : bubbleScalePer10;
                         pkg.bubble.localScale = new Vector3(bubbleScale, bubbleScale, bubbleScale);
+                    }
+                    else
+                    {
+                        gameUIManager._kirimScreen.SetActive(true);
                     }
                 }
             }
@@ -153,6 +157,13 @@ public class Clicker : MonoBehaviour
         }
         _pointSelected = null;
         OnLeaveObject();
+    }
+
+    public void OnCloseBubbleBuilderForm()
+    {
+        gameManager.SetBubbleForm(0, 0, 0);
+        gameUIManager._bubbleBuilderScreen.GetComponent<BubbleBuilderScreenController>().RenderBubbleForm();
+        OnEscapingObject();
     }
 
     void OnLeaveObject()

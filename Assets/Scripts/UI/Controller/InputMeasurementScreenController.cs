@@ -34,6 +34,14 @@ public class InputMeasurementScreenController : MonoBehaviour
         _submitBtn.onClick.AddListener(Submit);
     }
 
+    public void ResetInput()
+    {
+        package = GameObject.FindWithTag("Package");
+        inputPanjang.text = "";
+        inputLebar.text = "";
+        inputTinggi.text = "";
+    }
+
     private void Submit()
     {
         int p = int.Parse(inputPanjang.text);
