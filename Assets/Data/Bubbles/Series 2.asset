@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Series 2
   m_EditorClassIdentifier: Assembly-CSharp::BubbleDeginition
   type: Series 2
-  maxStretch: 40
+  maxStretch: 250
   maxWeight: 20
   price: 10

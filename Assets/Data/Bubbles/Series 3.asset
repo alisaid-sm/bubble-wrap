@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Series 3
   m_EditorClassIdentifier: 
   type: Series 3
-  maxStretch: 50
+  maxStretch: 400
   maxWeight: 30
   price: 20

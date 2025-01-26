@@ -63,6 +63,8 @@ public class GameUIManager : MonoBehaviour
     public void OnEnterComputer()
     {
         _computerScreen.SetActive(true);
+        Transform child = _computerScreen.transform.Find("ListItem");
+        child.GetComponent<ComputerScreenController>()?.RenderTasks();
     }
     public void OnEnterMeasurement()
     {
@@ -82,6 +84,7 @@ public class GameUIManager : MonoBehaviour
         OnLeaveObject();
         gameManager.formMode = true;
         _bubbleBuilderScreen.SetActive(true);
+        _bubbleBuilderScreen.GetComponent<BubbleBuilderScreenController>()?.LoadResources();
         _bubbleBuilderScreen.GetComponent<BubbleBuilderScreenController>()?.RenderBubbleForm();
     }
 
@@ -165,6 +168,7 @@ public class GameUIManager : MonoBehaviour
             task.status = ITaskStatus.SUCCESS;
         }
         gameManager.SetBubbleForm(0, 0, 0);
+        gameManager.SetPlayerForm(0, 0, 0);
         saveManager.SaveGame();
         _kirimScreen.SetActive(false);
         _resultScreen.SetActive(true);

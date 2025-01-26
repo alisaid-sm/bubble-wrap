@@ -42,8 +42,7 @@ public class BubbleBuilderScreenController : MonoBehaviour
 
     private List<BubbleDefinition> bubbles;
 
-    void Start()
-    {
+    public void LoadResources(){
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         gameUIManager = GameObject.FindWithTag("GameUIManager").GetComponent<GameUIManager>();
         bubbles = gameUIManager.GetBubbles();
@@ -57,6 +56,11 @@ public class BubbleBuilderScreenController : MonoBehaviour
         beratText.text = gameUIManager.FindTask().package.weight.ToString();
         goldText.text = gameUIManager.GetPlayerGold().ToString();
 
+    }
+
+    void Start()
+    {
+        LoadResources();
         GenerateBubbleList();
 
     }
